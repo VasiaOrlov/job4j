@@ -22,14 +22,14 @@ public class SqMaxTest {
     @Test
     public void whenThirdMax() {
         SqMax check2 = new SqMax();
-        int result2 = check2.max(1, 3, 9, 7);
-        assertThat(result2, is(9));
+        int result2 = check2.max(10, 3, 90, 7);
+        assertThat(result2, is(90));
     }
 
     @Test
     public void whenForthMax() {
         SqMax check3 = new SqMax();
-        int result3 = check3.max(1, 3, 5, 9);
-        assertThat(result3, is(9));
+        int result3 = check3.max(18, 13, 15, 19);
+        assertThat(result3, is(19));
     }
 }
