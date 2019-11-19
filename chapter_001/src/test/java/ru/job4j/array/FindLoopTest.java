@@ -28,4 +28,22 @@ public class FindLoopTest {
         int result2 = find2.indexOf(new int[] {3, 4, 7, 10, 1}, 2);
         assertThat(result2, is(-1));
     }
+
+    /**
+     * Method indexOfTest1 - test method if value in array
+     */
+    @Test
+    public void indexOfNewTest1() {
+        int result1 = FindLoop.indexOfNew(new int[] {3, 4, 7, 10, 1}, 1, 2, 4);
+        assertThat(result1, is(4));
+    }
+
+    /**
+     * Method indexOfTest2 - test method if value in not
+     */
+    @Test
+    public void indexOfNewTest2() {
+        int result1 = FindLoop.indexOfNew(new int[] {3, 4, 7, 10, 1}, 1, 2, 3);
+        assertThat(result1, is(-1));
+    }
 }

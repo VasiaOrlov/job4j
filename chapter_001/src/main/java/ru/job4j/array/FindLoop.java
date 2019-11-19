@@ -21,4 +21,23 @@ public class FindLoop {
         }
         return rst;
     }
+
+    /**
+     * Method indexOf - find index value el in the range from start to finish.
+     * @param data - array.
+     * @param el - find value.
+     * @param start - start index.
+     * @param finish - finish index.
+     * @return - index value.
+     */
+    public static int indexOfNew(int[] data, int el, int start, int finish) {
+        int rst = -1;
+        for (int index = start; index <= finish; index++) {
+            if (data[index] == el) {
+                rst = index;
+                break;
+            }
+        }
+        return rst;
+    }
 }
