@@ -1,0 +1,23 @@
+package ru.job4j.array;
+
+/**
+ * Class Check
+ * @author Vasiliy Orlov
+ */
+public class Check {
+    /**
+     * Method mono.
+     * @param data - input array.
+     * @return - equals all value in array.
+     */
+    public boolean mono(boolean[] data) {
+        boolean result = true;
+          for (int i = 1; i < data.length - 1; i++) {
+              if (data[0] != data[i]) {
+                  result = false;
+                  break;
+              }
+          }
+        return result;
+    }
+}
