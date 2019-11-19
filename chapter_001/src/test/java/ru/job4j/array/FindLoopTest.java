@@ -46,4 +46,13 @@ public class FindLoopTest {
         int result1 = FindLoop.indexOfNew(new int[] {3, 4, 7, 10, 1}, 1, 2, 3);
         assertThat(result1, is(-1));
     }
+
+    /**
+     * Method sortTest - test method sort.
+     */
+    @Test
+    public void sortTest() {
+        int[] result = FindLoop.sort(new int[] {3, 4, 1, 2, 7, 6});
+        assertThat(result, is(new int[] {1, 2, 3, 4, 6, 7}));
+    }
 }
