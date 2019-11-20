@@ -15,4 +15,17 @@ public class PrimeNumber {
         }
         return count;
     }
+
+    public int calcNew(int finish) {
+        int count = 0;
+        for (int value = 2; value <= finish; value++) {
+            CheckPrimeNumber x = new CheckPrimeNumber();
+            boolean prime = x.check(value);
+            if (prime) {
+            count++;
+            }
+        }
+        return count;
+    }
+
 }

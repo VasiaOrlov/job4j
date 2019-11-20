@@ -24,4 +24,22 @@ public class PrimeNumberTest {
         assertThat(result3, is(1));
     }
 
+    @Test
+    public void calcNewTest1() {
+        PrimeNumber number = new PrimeNumber();
+        int result = number.calcNew(5);
+        assertThat(result, is(3));
+    }
+    @Test
+    public void calcNewTest2() {
+        PrimeNumber number = new PrimeNumber();
+        int result = number.calcNew(11);
+        assertThat(result, is(5));
+    }
+    @Test
+    public void calcNewTest3() {
+        PrimeNumber number = new PrimeNumber();
+        int result = number.calcNew(2);
+        assertThat(result, is(1));
+    }
 }
