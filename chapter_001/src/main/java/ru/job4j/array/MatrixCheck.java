@@ -19,29 +19,21 @@ public class MatrixCheck {
             }
             System.out.println();
         }
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < board.length && !result; i++) {
             if ( board[i][i] == 'X') {
+                int a = 0;
+                int b = 0;
                 for (int j = 0; j < board.length; j++) {
                     if (board[i][j] == 'X') {
-                        result = true;
-                    } else {
-                        result = false;
-                        break;
+                        a++;
+                    }
+                    if (board[j][i] == 'X') {
+                        b++;
                     }
                 }
-                if (!result) {
-                    for (int j = 0; j < board.length; j++) {
-                        if (board[j][i] == 'X') {
-                            result = true;
-                        } else {
-                            result = false;
-                            break;
-                        }
-                    }
+                if (a == board.length || b == board.length) {
+                    result = true;
                 }
-            }
-            if (result) {
-                break;
             }
         }
         return result;
