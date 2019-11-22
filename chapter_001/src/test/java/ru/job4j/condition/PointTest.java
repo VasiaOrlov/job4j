@@ -9,6 +9,6 @@ public class PointTest {
     public void distanceTest() {
         double expected = 7.2;
         double out = Point.distance(4, 0, 10, 4);
-        Assert.assertEquals(expected,out, 0.02);
+        Assert.assertEquals(expected, out, 0.02);
     }
 }

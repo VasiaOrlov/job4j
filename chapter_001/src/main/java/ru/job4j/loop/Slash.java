@@ -10,7 +10,7 @@ public class Slash {
      * @param size - size table.
      */
     public static void draw(int size) {
-        for(int row = 0; row < size; row++) {
+        for (int row = 0; row < size; row++) {
             for (int cell = 0; cell < size; cell++) {
                 boolean left = row == cell;
                 boolean right = size - row - 1 == cell;

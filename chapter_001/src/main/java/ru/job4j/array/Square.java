@@ -13,7 +13,7 @@ public class Square {
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
         for (int row = 0; row < bound; row++) {
-          rst[row] = (int)Math.pow(row + 1, 2);
+          rst[row] = (int) Math.pow(row + 1, 2);
         }
         return rst;
     }

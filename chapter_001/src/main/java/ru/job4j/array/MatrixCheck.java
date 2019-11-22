@@ -20,7 +20,7 @@ public class MatrixCheck {
             System.out.println();
         }
         for (int i = 0; i < board.length && !result; i++) {
-            if ( board[i][i] == 'X') {
+            if (board[i][i] == 'X') {
                 int a = 0;
                 int b = 0;
                 for (int j = 0; j < board.length; j++) {
