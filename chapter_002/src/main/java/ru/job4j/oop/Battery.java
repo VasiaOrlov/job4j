@@ -4,6 +4,7 @@ public class Battery {
     private int load;
     public void exchanger(Battery another) {
         another.load += this.load;
+        this.load = 0;
     }
     public static void main(String[] args) {
         Battery one = new Battery();
