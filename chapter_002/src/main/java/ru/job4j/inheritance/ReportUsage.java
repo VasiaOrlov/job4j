@@ -7,5 +7,8 @@ public class ReportUsage {
         System.out.println();
         TextReport report1 = new TextReport();
         System.out.println(report1.generate("Report's name", "Report's body"));
+        System.out.println();
+        HtmlReport report2 = new HtmlReport();
+        System.out.println(report2.generate("Report's name", "Report's body"));
     }
 }
