@@ -19,13 +19,18 @@ public class StartUI {
                 }
             } else if (value == 2) {
                 System.out.println("Введите id, введите новое имя");
-                System.out.println(tracker.replace(scanner.nextLine(), new Item(scanner.nextLine())));
+                System.out.println("Заявка изменена - " + tracker.replace(scanner.nextLine(), new Item(scanner.nextLine())));
             } else if (value == 3) {
                 System.out.println("Ведите id заявки чтобы удалить:");
-                System.out.println(tracker.delete(scanner.nextLine()));
+                System.out.println("Заявка удалена - " + tracker.delete(scanner.nextLine()));
             } else if (value == 4) {
                 System.out.println("Введите id чтобы найти заявку:");
-                System.out.println(tracker.findById(scanner.nextLine()).getName());
+                String id = scanner.nextLine();
+                if (tracker.findById(id) != null) {
+                    System.out.println("Заявка с данным id: " + tracker.findById(id).getName());
+                } else {
+                    System.out.println("Заявки с таким id не существует.");
+                }
             } else if (value == 5) {
                 System.out.println("Введите имя заявки");
                 Item[] result = tracker.findByName(scanner.nextLine());
@@ -50,7 +55,7 @@ public class StartUI {
         System.out.println("4. Find item by Id");
         System.out.println("5. Find items by name");
         System.out.println("6. Exit Program");
-        System.out.println("Select: ");
+        System.out.print("Select: ");
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
