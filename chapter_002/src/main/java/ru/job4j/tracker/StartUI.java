@@ -60,43 +60,40 @@ public class StartUI {
         System.out.println("Введите значение от 0 до 6.");
     }
 
-    public void init(Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            this.showMenu();
-            int value = Integer.valueOf(input.askStr("Select: "));
-            if (value == 0) {
-                StartUI.createItem(input, tracker);
-            } else if (value == 1) {
-                StartUI.findAllItem(tracker);
-            } else if (value == 2) {
-                StartUI.replaceItem(input, tracker);
-            } else if (value == 3) {
-                StartUI.deleteItem(input, tracker);
-            } else if (value == 4) {
-                StartUI.findByIdItem(input, tracker);
-            } else if (value == 5) {
-                StartUI.findByNameItem(input, tracker);
-            } else if (value == 6) {
-                run = StartUI.exit();
+            this.showMenu(actions);
+            int select = input.askInt("Select: ");
+            if (select < actions.length) {
+                UserAction action = actions[select];
+                run = action.execute(input, tracker);
             } else {
-                StartUI.replay();
+                System.out.println(String.format("Введите значение от 0 до %d.", actions.length));
             }
+
         }
     }
-    private void showMenu() {
+
+    private void showMenu(UserAction[] actions) {
         System.out.println("Menu.");
-        System.out.println("0. Add new Item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find items by name");
-        System.out.println("6. Exit Program");
+        for (int index = 0; index < actions.length; index++) {
+            System.out.println(index + ". " + actions[index].name());
+        }
     }
+
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
+        UserAction[] actions = {
+                new CreateAction(),
+                new FindAllAction(),
+                new ReplaceAction(),
+                new DeleteAction(),
+                new FindByIdAction(),
+                new FindByNameAction(),
+                new ExitAction()
+        };
+        new StartUI().init(input, tracker, actions);
     }
 }
