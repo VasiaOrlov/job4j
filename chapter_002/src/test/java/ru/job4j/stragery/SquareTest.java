@@ -9,9 +9,9 @@ public class SquareTest {
     public void drawTest() {
         Square sq = new Square();
         assertThat(sq.draw(), is(new StringBuilder()
-                .append("+++\n")
-                .append("+ +\n")
-                .append("+++\n")
+                .append("+++" + System.lineSeparator())
+                .append("+ +" + System.lineSeparator())
+                .append("+++" + System.lineSeparator())
                 .toString()
         ));
     }

@@ -9,9 +9,9 @@ public class TriangleTest {
     public void drawTest() {
         Triangle tr = new Triangle();
         assertThat(tr.draw(), is(new StringBuilder()
-                .append("+  \n")
-                .append("++ \n")
-                .append("+++\n")
+                .append("+  " + System.lineSeparator())
+                .append("++ " + System.lineSeparator())
+                .append("+++" + System.lineSeparator())
                 .toString()
         ));
     }
