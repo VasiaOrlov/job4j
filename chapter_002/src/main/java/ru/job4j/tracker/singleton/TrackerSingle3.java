@@ -4,7 +4,7 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 
 public class TrackerSingle3 {
-    private static final Tracker VALUE = new Tracker();
+    private final Tracker value = new Tracker();
 
     private TrackerSingle3() {
     }
@@ -13,12 +13,32 @@ public class TrackerSingle3 {
         return Holder.INSTANCE;
     }
 
-    private static final class Holder {
-        private static final TrackerSingle3 INSTANCE = new TrackerSingle3();
+    public Item add(Item item) {
+        return value.add(item);
     }
 
-    public static Item add(Item item) {
-        return VALUE.add(item);
+    public boolean delete(String id) {
+        return value.delete(id);
+    }
+
+    public boolean replace(String id, Item item) {
+        return value.replace(id, item);
+    }
+
+    public Item[] findAll() {
+        return value.findAll();
+    }
+
+    public Item[] findByName(String key) {
+        return value.findByName(key);
+    }
+
+    public Item findById(String id) {
+        return value.findById(id);
+    }
+
+    private static final class Holder {
+        private static final TrackerSingle3 INSTANCE = new TrackerSingle3();
     }
 
     public static void main(String[] args) {
