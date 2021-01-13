@@ -5,13 +5,13 @@ import ru.job4j.tracker.Tracker;
 
 public enum TrackerSingle {
     INSTANCE;
-    private final Tracker value = new Tracker();
+    private final Tracker tracker = new Tracker();
 
-    public Tracker getInstance() {
-        return value;
+    public Tracker getTracker() {
+        return tracker;
     }
 
     public static void main(String[] args) {
-        Tracker tracker = TrackerSingle.INSTANCE.getInstance();
+        Tracker tracker = TrackerSingle.INSTANCE.getTracker();
     }
 }

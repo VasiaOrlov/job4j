@@ -6,16 +6,15 @@ public class TrackerSingle3 {
     private TrackerSingle3() {
     }
 
-    public static Tracker getInstance() {
+    public static Tracker getTracker() {
         return Holder.VALUE;
     }
 
     private static final class Holder {
-        private static final TrackerSingle3 INSTANCE = new TrackerSingle3();
         private static final Tracker VALUE = new Tracker();
     }
 
     public static void main(String[] args) {
-        Tracker tracker = TrackerSingle3.getInstance();
+        Tracker tracker = TrackerSingle3.getTracker();
     }
 }
