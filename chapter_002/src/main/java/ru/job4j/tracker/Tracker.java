@@ -48,15 +48,12 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        int value = 0;
-        for (Item x : items) {
-            if (x.getId().equals(id)) {
-                items.set(value, item);
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId().equals(id)) {
+                items.set(index, item);
                 item.setId(id);
                 result = true;
                 break;
-            } else {
-                value++;
             }
         }
         return result;
@@ -67,11 +64,7 @@ public class Tracker {
      * @return - массив заполненых заявок.
      */
     public List<Item> findAll() {
-        List<Item> result = new ArrayList<>();
-        for (Item x : items) {
-            result.add(x);
-        }
-        return result;
+        return items;
     }
 
     /**
@@ -97,7 +90,7 @@ public class Tracker {
     public Item findById(String id) {
         Item result = null;
         for (Item x : items) {
-            if (x != null && x.getId().equals(id)) {
+            if (x.getId().equals(id)) {
                 result = x;
                 break;
             }
