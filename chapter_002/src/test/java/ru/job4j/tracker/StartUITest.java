@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 import static org.junit.Assert.assertThat;
@@ -16,7 +18,7 @@ public class StartUITest {
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
         StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         Item expected = new Item("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
     }
@@ -46,7 +48,9 @@ public class StartUITest {
     public void whenExit() {
         StubInput input = new StubInput(new String[] {"0"});
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(action);
+        new StartUI().init(input, new Tracker(), actions);
         assertThat(action.isCall(), is(true));
     }
 
@@ -57,7 +61,9 @@ public class StartUITest {
         System.setOut(new PrintStream(out));
         StubInput input = new StubInput(new String[] {"0"});
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(action);
+        new StartUI().init(input, new Tracker(), actions);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. Stub action")
