@@ -4,7 +4,7 @@ package ru.job4j.tracker;
  * Class Item.
  * @author Vasiliy Orlov.
  */
-public class Item {
+public class Item implements Comparable<Item> {
     /**
      * id - уникальный номер заявки.
      * name - имя заявки.
@@ -30,5 +30,18 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return Integer.compare(Integer.parseInt(id), Integer.parseInt(o.getId()));
+    }
+
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id='" + id + '\''
+                + ", name='" + name + '\''
+                + '}';
     }
 }
