@@ -1,6 +1,7 @@
 ﻿# job4j
 
-я начал курс в 2019 году. Планирую закончить курс в 2020 году.
+[![Build Status](https://travis-ci.org/VasiaOrlov/job4j.svg?branch=master)](https://travis-ci.org/VasiaOrlov/job4j)
+[![codecov](https://codecov.io/gh/VasiaOrlov/job4j/branch/master/graph/badge.svg?token=5CA2T5VVRN)](https://codecov.io/gh/VasiaOrlov/job4j)
 
 Объединение зафиксированных изменений.
 
