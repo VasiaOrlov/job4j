@@ -14,17 +14,11 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        List<Account> accounts = users.get(user);
-        boolean notExist = true;
-        for (Account x : accounts) {
-            if (x.equals(account)) {
-                notExist = false;
-                break;
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
             }
-        }
-        if (notExist) {
-            accounts.add(account);
-            users.put(user, accounts);
         }
     }
 
@@ -38,12 +32,11 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                for (Account account : users.get(user)) {
-                    if (account.getRequisite().equals(requisite)) {
-                        return account;
-                    }
+        User user = findByPassport(passport);
+        if (user != null) {
+            for (Account account : users.get(user)) {
+                if (account.getRequisite().equals(requisite)) {
+                    return account;
                 }
             }
         }
@@ -57,18 +50,12 @@ public class BankService {
                                  double amount) {
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, destRequisite);
-        User srcUser = findByPassport(srcPassport);
-        User destUser = findByPassport((destPassport));
-        int srcIndex = users.get(srcUser).indexOf(srcAccount);
-        int destIndex = users.get(destUser).indexOf(destAccount);
-        boolean rsl = users.get(srcUser).contains(srcAccount)
+        boolean rsl = srcAccount != null
                 && srcAccount.getBalance() >= amount
-                && users.get(destUser).contains(destAccount);
+                && destAccount != null;
         if (rsl) {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);
-            users.get(srcUser).set(srcIndex, srcAccount);
-            users.get(destUser).set(destIndex, destAccount);
         }
         return rsl;
     }
