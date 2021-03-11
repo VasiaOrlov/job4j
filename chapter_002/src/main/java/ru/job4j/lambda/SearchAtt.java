@@ -29,7 +29,7 @@ public class SearchAtt {
 
 
 
-    public static List<Attachment> filterSizeInterface (List<Attachment> list, String value) {
+    public static List<Attachment> filterSizeInterface(List<Attachment> list, String value) {
         BiPredicate<Attachment, String> func = new BiPredicate<Attachment, String>() {
             @Override
             public boolean test(Attachment attachment, String s) {
@@ -39,7 +39,7 @@ public class SearchAtt {
         return filter(func, list, value);
     }
 
-    public static List<Attachment> filterNameInterface (List<Attachment> list, String value) {
+    public static List<Attachment> filterNameInterface(List<Attachment> list, String value) {
         BiPredicate<Attachment, String> func = new BiPredicate<Attachment, String>() {
             @Override
             public boolean test(Attachment attachment, String s) {
@@ -49,7 +49,7 @@ public class SearchAtt {
         return filter(func, list, value);
     }
 
-    private static List<Attachment> filter (BiPredicate<Attachment, String> func, List<Attachment> list, String value) {
+    private static List<Attachment> filter(BiPredicate<Attachment, String> func, List<Attachment> list, String value) {
         List<Attachment> rsl = new ArrayList<>();
         for (Attachment att : list) {
             if (func.test(att, value)) {
@@ -60,7 +60,7 @@ public class SearchAtt {
     }
 
 
-    public static List<Attachment> filter2 (BiPredicate<Attachment, String> func, List<Attachment> list, String value) {
+    public static List<Attachment> filter2(BiPredicate<Attachment, String> func, List<Attachment> list, String value) {
         List<Attachment> rsl = new ArrayList<>();
         for (Attachment att : list) {
             if (func.test(att, value)) {
