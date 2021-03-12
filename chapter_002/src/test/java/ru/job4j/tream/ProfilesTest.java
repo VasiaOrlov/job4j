@@ -10,16 +10,19 @@ public class ProfilesTest {
     @Test
     public void collectTest() {
         List<Profile> list = Arrays.asList(
+                new Profile(new Address("Moscow", "Green", 2, 5)),
                 new Profile(new Address("Moscow", "Green", 1, 5)),
                 new Profile(new Address("Moscow", "Red", 1, 3)),
-                new Profile(new Address("Kirov", "Blue", 25, 53))
+                new Profile(new Address("Kirov", "Blue", 25, 53)),
+                new Profile(new Address("Moscow", "Green", 1, 5))
         );
         Profiles profiles = new Profiles();
         List<Address> result = profiles.collect(list);
         List<Address> expect = Arrays.asList(
+                new Address("Kirov", "Blue", 25, 53),
                 new Address("Moscow", "Green", 1, 5),
-                new Address("Moscow", "Red", 1, 3),
-                new Address("Kirov", "Blue", 25, 53)
+                new Address("Moscow", "Green", 2, 5),
+                new Address("Moscow", "Red", 1, 3)
         );
         assertThat(expect, is(result));
     }
