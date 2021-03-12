@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Map;
 
-public class StudentMapTest{
+public class StudentMapTest {
     @Test
     public void inMapTest() {
         StudentMap studentMap = new StudentMap();
