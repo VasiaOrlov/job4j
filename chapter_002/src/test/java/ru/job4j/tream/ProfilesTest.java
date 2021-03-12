@@ -20,8 +20,8 @@ public class ProfilesTest {
         List<Address> result = profiles.collect(list);
         List<Address> expect = Arrays.asList(
                 new Address("Kirov", "Blue", 25, 53),
-                new Address("Moscow", "Green", 1, 5),
                 new Address("Moscow", "Green", 2, 5),
+                new Address("Moscow", "Green", 1, 5),
                 new Address("Moscow", "Red", 1, 3)
         );
         assertThat(expect, is(result));
