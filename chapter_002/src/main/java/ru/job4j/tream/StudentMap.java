@@ -8,11 +8,11 @@ public class StudentMap {
 
     public Map<String, Student> inMap(List<Student> list) {
         return list.stream()
-                .distinct()
                 .collect(
                         Collectors.toMap(
                                 Student::getName,
-                                e -> e
+                                e -> e,
+                                (key1, key2) -> key1
                         )
                 );
     }
