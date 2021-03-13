@@ -9,10 +9,7 @@ public class MatrixToListTest {
 
     @Test
     public void flatMapTest() {
-        List<List<Integer>> matrix = List.of(
-                List.of(1, 2),
-                List.of(3, 4)
-        );
+        Integer[][] matrix = {{1, 2}, {3, 4}};
         MatrixToList matrixToList = new MatrixToList();
         List<Integer> expect = matrixToList.flatMap(matrix);
         List<Integer> rsl = List.of(1, 2, 3, 4);
