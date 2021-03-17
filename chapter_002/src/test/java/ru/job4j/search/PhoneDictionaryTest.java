@@ -8,11 +8,11 @@ import org.junit.Test;
 public class PhoneDictionaryTest {
     @Test
     public void findTest() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> persons = phones.find("ryan");
+        var persons = phones.find("ryan");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
